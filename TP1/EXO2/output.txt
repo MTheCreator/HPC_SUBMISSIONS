@@ -1,0 +1,41 @@
+Matrix Multiplication Performance Comparison
+============================================
+
+Matrix size: 256 x 256
+  ijk order:
+    Time: 71.76 ms
+    Performance: 0.47 GFLOPS
+    Bandwidth: 5.61 GB/s
+  ikj order:
+    Time: 21.74 ms
+    Performance: 1.54 GFLOPS
+    Bandwidth: 18.52 GB/s
+    Speedup: 3.30x
+
+Matrix size: 512 x 512
+  ijk order:
+    Time: 378.04 ms
+    Performance: 0.71 GFLOPS
+    Bandwidth: 8.52 GB/s
+  ikj order:
+    Time: 157.83 ms
+    Performance: 1.70 GFLOPS
+    Bandwidth: 20.41 GB/s
+    Speedup: 2.40x
+
+Matrix size: 1024 x 1024
+  ijk order:
+    Time: 3178.03 ms
+    Performance: 0.68 GFLOPS
+    Bandwidth: 8.11 GB/s
+  ikj order:
+    Time: 1243.09 ms
+    Performance: 1.73 GFLOPS
+    Bandwidth: 20.73 GB/s
+    Speedup: 2.56x
+
+
+ Explanation:
+- ijk order: Poor cache locality for matrix b (column access)
+- ikj order: Better cache locality (row-wise access for both a and b)
+- Speedup increases with matrix size due to cache effects

@@ -1,0 +1,88 @@
+OUTPUTS:
+
+(base) baddou@Mounias-MacBook-Pro TP1 % cd "/Users/baddou/Desktop/ENG-Cycle-S4/Parallel_Distributed_Pog_MPI_Socket/TPs/TP1/" && gcc Exercise_1.c -O0 -o Exercise_1 && "/Users/baddou/Desktop/ENG-Cycle-S4/Parallel_Distributed_Pog_MPI_Socket/TPs/TP1/"Exercise_1
+stride, sum, time (msec), rate (MB/s)
+1, 1000000.000000, 1.101000, 6929.513652 
+2, 1000000.000000, 1.093000, 6980.232874 
+3, 1000000.000000, 0.992000, 7690.921907 
+4, 1000000.000000, 1.018000, 7494.493646 
+5, 1000000.000000, 1.049000, 7273.016712 
+6, 1000000.000000, 1.062000, 7183.987318 
+7, 1000000.000000, 1.082000, 7051.196424 
+8, 1000000.000000, 1.922000, 3969.508081 
+9, 1000000.000000, 1.285000, 5937.272009 
+10, 1000000.000000, 1.439000, 5301.872503 
+11, 1000000.000000, 1.445000, 5279.857807 
+12, 1000000.000000, 1.581000, 4825.676490 
+13, 1000000.000000, 1.727000, 4417.715421 
+14, 1000000.000000, 1.829000, 4171.347475 
+15, 1000000.000000, 1.963000, 3886.599354 
+16, 1000000.000000, 3.957000, 1928.075444 
+17, 1000000.000000, 3.919000, 1946.770740 
+18, 1000000.000000, 4.439000, 1718.719201 
+19, 1000000.000000, 5.333000, 1430.600887 
+20, 1000000.000000, 4.840000, 1576.321184 
+(base) baddou@Mounias-MacBook-Pro TP1 % cd "/Users/baddou/Desktop/ENG-Cycle-S4/Parallel_Distributed_Pog_MPI_Socket/TPs/TP1/" && gcc Exercise_1.c -O2 -o Exercise_1 && "/Users/baddou/Desktop/ENG-Cycle-S4/Parallel_Distributed_Pog_MPI_Socket/TPs/TP1/"Exercise_1
+stride, sum, time (msec), rate (MB/s)
+1, 1000000.000000, 1.089000, 7005.871930 
+2, 1000000.000000, 1.120000, 6811.959403 
+3, 1000000.000000, 0.930000, 8203.650034 
+4, 1000000.000000, 1.167000, 6537.613137 
+5, 1000000.000000, 1.086000, 7025.225167 
+6, 1000000.000000, 1.112000, 6860.966305 
+7, 1000000.000000, 1.098000, 6948.446750 
+8, 1000000.000000, 1.258000, 6064.701535 
+9, 1000000.000000, 1.317000, 5793.010274 
+10, 1000000.000000, 1.286000, 5932.655156 
+11, 1000000.000000, 1.678000, 4546.719029 
+12, 1000000.000000, 1.475000, 5172.470869 
+13, 1000000.000000, 1.582000, 4822.626126 
+14, 1000000.000000, 1.781000, 4283.770091 
+15, 1000000.000000, 1.888000, 4040.992866 
+16, 1000000.000000, 2.760000, 2764.273381 
+17, 1000000.000000, 4.325000, 1764.021857 
+18, 1000000.000000, 3.463000, 2203.117104 
+19, 1000000.000000, 3.882000, 1965.325742 
+20, 1000000.000000, 4.157000, 1835.312613
+
+
+
+COMPARISONS AND ANSWERED QUESTIONS:
+
+Key Observations
+Performance Comparison
+-O0 (No Optimization):
+
+Small strides (1-7): ~7000-7700 MB/s
+Sharp drop at stride 8: ~3970 MB/s
+Large strides (16-20): ~1400-1900 MB/s
+-O2 (Optimized):
+
+Small strides (1-7): ~6500-8200 MB/s (similar to -O0)
+Better performance at stride 8: ~6065 MB/s (53% faster than -O0)
+Large strides (16-20): ~1800-2800 MB/s (better than -O0)
+Cache Effects
+The performance degradation with increasing stride is due to cache line behavior:
+
+Strides 1-7: Good spatial locality, multiple elements per cache line
+Stride 8: Critical transition point - each access likely spans cache lines
+Strides 16-20: Poor cache utilization, more cache misses
+Loop Unrolling Impact (-O2 optimization)
+Benefits observed:
+
+Reduced loop overhead: Fewer branch instructions per iteration
+Better instruction pipelining: Multiple operations can execute in parallel
+Improved at medium strides: Stride 8 shows 53% improvement (3970 → 6065 MB/s)
+More consistent performance: Less variation in timings
+Why -O0 and -O2 are similar at small strides:
+
+Memory bandwidth becomes the bottleneck
+Cache performance dominates over CPU instruction efficiency
+Why -O2 helps at larger strides:
+
+Computation overhead becomes more significant
+Loop unrolling reduces branch misprediction penalties
+Better register utilization
+
+Conclusion
+Loop unrolling (-O2) provides 10-53% improvement for medium-to-large strides by reducing instruction overhead, but has minimal impact at small strides where memory bandwidth is the limiting factor. The sharp performance drop at stride 16 in both cases indicates cache line size boundaries (64 bytes = 8 doubles).

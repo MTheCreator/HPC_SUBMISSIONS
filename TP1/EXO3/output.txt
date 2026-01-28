@@ -1,0 +1,54 @@
+========================================================
+Blocked Matrix Multiplication Performance Analysis
+========================================================
+Matrix size: 1024 x 1024
+
+Theoretical Operations: 2.15 GFLOP
+Approximate Memory Accessed: 25.77 GB
+
+BASELINE (No blocking):
+--------------------------------------------------------
+  Time:        1261.12 ms
+  Performance:    1.70 GFLOPS
+  Bandwidth:     20.43 GB/s
+  Speedup:        1.00x (baseline)
+
+BLOCKED VERSIONS:
+--------------------------------------------------------
+Block Size | Time (ms) | GFLOPS | Bandwidth | Speedup
+--------------------------------------------------------
+    16     |   1798.31 |   1.19 |     14.33 |    0.70x
+    32     |   1689.80 |   1.27 |     15.25 |    0.75x
+    64     |   1641.56 |   1.31 |     15.70 |    0.77x
+   128     |   1751.76 |   1.23 |     14.71 |    0.72x
+   256     |   1672.52 |   1.28 |     15.41 |    0.75x
+--------------------------------------------------------
+
+========================================================
+ANALYSIS:
+========================================================
+Optimal Block Size: 0 x 0
+Maximum Speedup: 1.00x
+
+WHY IS THIS THE OPTIMAL BLOCK SIZE?
+--------------------------------------------------------
+1. Cache Considerations:
+   - Each block requires ~0.00 KB for 3 blocks (A, B, C)
+   - Fits well in L1/L2 cache (typically 32-256 KB per core)
+   - Maximizes data reuse before eviction
+
+2. Block Size Effects:
+   - Too small (16-32): Overhead from extra loop iterations
+   - Too large (256+): Exceeds cache capacity, more misses
+   - Optimal (0): Balance between cache utilization and overhead
+
+3. Cache Hierarchy (typical Mac M-series):
+   - L1 Cache: 128-192 KB (per core)
+   - L2 Cache: 12-24 MB (shared)
+   - Block size 0 fits in L1 with room for other data
+
+4. Performance Characteristics:
+   - Blocks fit entirely in fast cache levels
+   - Minimizes main memory accesses
+   - Reduces TLB misses
+   - Improves spatial and temporal locality
