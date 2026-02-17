@@ -1,0 +1,9 @@
+(base) baddou@Mounias-MacBook-Pro TP3 % cd EXO2    
+(base) baddou@Mounias-MacBook-Pro EXO2 % clang -Xpreprocessor -fopenmp code.c \           
+  -I$(brew --prefix libomp)/include \
+  -L$(brew --prefix libomp)/lib -lomp \
+  -o code     
+
+(base) baddou@Mounias-MacBook-Pro EXO2 % ./code
+PI = 3.14159
+Time = 0.000460 seconds

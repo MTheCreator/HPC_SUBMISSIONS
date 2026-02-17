@@ -1,0 +1,72 @@
+Parallel Performance Analysis
+===========================================
+
+Threads: 1
+
+System size:   120
+Iterations:   10
+Norme:  4.185E-07
+Elapsed time:  7.110E-04 sec
+CPU time:  7.110E-04 sec
+
+Threads: 2
+
+System size:   120
+Iterations:   10
+Norme:  4.434E-07
+Elapsed time:  4.940E-04 sec
+CPU time:  4.940E-04 sec
+
+Threads: 4
+
+System size:   120
+Iterations:   12
+Norme:  1.994E-07
+Elapsed time:  3.240E-04 sec
+CPU time:  3.240E-04 sec
+
+Threads: 8
+
+System size:   120
+Iterations:   11
+Norme:  3.009E-07
+Elapsed time:  6.730E-04 sec
+CPU time:  6.731E-04 sec
+
+Threads: 16
+
+System size:   120
+Iterations:   16
+Norme:  5.696E-07
+Elapsed time:  2.627E-03 sec
+CPU time:  2.627E-03 sec
+
+Testing different system sizes (4 threads)...
+
+
+System size:   120
+Iterations:   13
+Norme:  3.945E-07
+Elapsed time:  4.900E-04 sec
+CPU time:  4.909E-04 sec
+
+
+System size:   240
+Iterations:   15
+Norme:  7.131E-07
+Elapsed time:  1.014E-03 sec
+CPU time:  1.014E-03 sec
+
+
+System size:   480
+Iterations:   30
+Norme:  9.002E-07
+Elapsed time:  6.089E-03 sec
+CPU time:  6.090E-03 sec
+
+
+System size:   960
+Iterations:  171
+Norme:  8.993E-07
+Elapsed time:  6.421E-02 sec
+CPU time:  6.421E-02 sec

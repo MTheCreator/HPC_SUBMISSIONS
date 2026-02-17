@@ -1,0 +1,31 @@
+Matrix Multiplication Performance Analysis
+==========================================
+
+Thread Count Tests (default scheduling)
+----------------------------------------
+Threads: 1 - Time: 0.269674 seconds
+Threads: 2 - Time: 0.121995 seconds
+Threads: 4 - Time: 0.067952 seconds
+Threads: 8 - Time: 0.052612 seconds
+Threads: 16 - Time: 0.049701 seconds
+
+Scheduling Policy Tests (4 threads)
+------------------------------------
+Testing STATIC scheduling...
+STATIC (chunk=1): Time: 0.070388 seconds
+STATIC (chunk=10): Time: 0.069124 seconds
+STATIC (chunk=50): Time: 0.072838 seconds
+STATIC (chunk=100): Time: 0.075131 seconds
+
+Testing DYNAMIC scheduling...
+DYNAMIC (chunk=1): Time: 0.078166 seconds
+DYNAMIC (chunk=10): Time: 0.069605 seconds
+DYNAMIC (chunk=50): Time: 0.068521 seconds
+DYNAMIC (chunk=100): Time: 0.067945 seconds
+
+Testing GUIDED scheduling...
+GUIDED (chunk=1): Time: 0.067717 seconds
+GUIDED (chunk=10): Time: 0.067435 seconds
+GUIDED (chunk=50): Time: 0.067936 seconds
+GUIDED (chunk=100): Time: 0.067579 seconds
+
