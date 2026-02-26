@@ -1,0 +1,45 @@
+(base) baddou@Mounias-MacBook-Pro TP5 % mpicc exo1.c -o exo1
+(only code with printf)
+
+(base) baddou@Mounias-MacBook-Pro TP5 % ./exo1 
+Hello from process 0 out of 1
+(final code, not run by mpirun)
+
+(base) baddou@Mounias-MacBook-Pro TP5 % mpirun -np 4 ./exo1
+Hello from process 2 out of 4
+Hello from process 3 out of 4
+Hello from process 0 out of 4
+Hello from process 1 out of 4
+(Tryout of run with 4 processes)
+
+(base) baddou@Mounias-MacBook-Pro TP5 % mpicc exo1.c -o exo1
+(Removal of MPI_Finalize())
+
+(base) baddou@Mounias-MacBook-Pro TP5 % mpirun -np 2 ./exo1
+Hello from process 1 out of 2
+Hello from process 0 out of 2
+--------------------------------------------------------------------------
+prterun has exited due to process rank 1 with PID 15637 on node Mounias-MacBook-Pro exiting
+improperly. There are three reasons this could occur:
+
+1. this process did not call "init" before exiting, but others in the
+job did. This can cause a job to hang indefinitely while it waits for
+all processes to call "init". By rule, if one process calls "init",
+then ALL processes must call "init" prior to termination.
+
+2. this process called "init", but exited without calling "finalize".
+By rule, all processes that call "init" MUST call "finalize" prior to
+exiting or it will be considered an "abnormal termination"
+
+3. this process called "MPI_Abort" or "prte_abort" and the mca
+parameter prte_create_session_dirs is set to false. In this case, the
+run-time cannot detect that the abort call was an abnormal
+termination. Hence, the only error message you will receive is this
+one.
+
+This may have caused other processes in the application to be
+terminated by signals sent by prterun (as reported here).
+
+You can avoid this message by specifying -quiet on the prterun command
+line.
+--------------------------------------------------------------------------

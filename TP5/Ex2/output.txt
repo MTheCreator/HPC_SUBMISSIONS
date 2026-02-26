@@ -1,0 +1,15 @@
+(base) baddou@Mounias-MacBook-Pro Ex2 % mpicc exo2.c -o exo2
+(base) baddou@Mounias-MacBook-Pro Ex2 % mpirun -np 5 ./exo2
+3
+Process 0 received value 3
+Process 1 received value 3
+Process 2 received value 3
+Process 3 received value 3
+Process 4 received value 3
+6
+Process 2 received value 6
+Process 0 received value 6
+Process 4 received value 6
+Process 3 received value 6
+Process 1 received value 6
+-1
