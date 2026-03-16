@@ -1,0 +1,12 @@
+(base) baddou@Mounias-MacBook-Pro Ex4 % mpirun -np 5 ./ex4 1000
+Serial time: 0.001217 seconds
+Parallel time: 0.002192 seconds
+Maximum difference between parallel and serial result: 0.000000e+00
+Speedup: 0.56
+Efficiency: 11.10%
+(base) baddou@Mounias-MacBook-Pro Ex4 % mpirun -np 5 ./ex4 2000
+Serial time: 0.005664 seconds
+Parallel time: 0.006672 seconds
+Maximum difference between parallel and serial result: 0.000000e+00
+Speedup: 0.85
+Efficiency: 16.98%

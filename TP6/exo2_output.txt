@@ -1,0 +1,25 @@
+(base) baddou@Mounias-MacBook-Pro TP6 % ./exo2.sh       
+Matrix-Vector Multiplication Performance Analysis
+==================================================
+
+| Processes | Matrix Size | Serial Time | Parallel Time | Speedup | Efficiency | Max Error |
+|-----------|-------------|-------------|---------------|---------|------------|-----------|
+N=500, Procs=1, Serial=0.000332, Parallel=0.000496, Speedup=0.67, Efficiency=66.94%, MaxError=0.000000e+00
+N=500, Procs=2, Serial=0.000305, Parallel=0.001917, Speedup=0.16, Efficiency=7.96%, MaxError=0.000000e+00
+N=500, Procs=4, Serial=0.000304, Parallel=0.002374, Speedup=0.13, Efficiency=3.20%, MaxError=0.000000e+00
+N=500, Procs=8, Serial=0.000900, Parallel=0.001606, Speedup=0.56, Efficiency=7.00%, MaxError=0.000000e+00
+
+N=1000, Procs=1, Serial=0.001076, Parallel=0.001865, Speedup=0.58, Efficiency=57.69%, MaxError=0.000000e+00
+N=1000, Procs=2, Serial=0.001211, Parallel=0.002523, Speedup=0.48, Efficiency=24.00%, MaxError=0.000000e+00
+N=1000, Procs=4, Serial=0.001249, Parallel=0.002240, Speedup=0.56, Efficiency=13.94%, MaxError=0.000000e+00
+N=1000, Procs=8, Serial=0.001221, Parallel=0.002626, Speedup=0.46, Efficiency=5.81%, MaxError=0.000000e+00
+
+N=2000, Procs=1, Serial=0.004755, Parallel=0.006718, Speedup=0.71, Efficiency=70.78%, MaxError=0.000000e+00
+N=2000, Procs=2, Serial=0.005801, Parallel=0.005280, Speedup=1.10, Efficiency=54.93%, MaxError=0.000000e+00
+N=2000, Procs=4, Serial=0.005687, Parallel=0.005679, Speedup=1.00, Efficiency=25.04%, MaxError=0.000000e+00
+N=2000, Procs=8, Serial=0.005276, Parallel=0.005994, Speedup=0.88, Efficiency=11.00%, MaxError=0.000000e+00
+
+N=4000, Procs=1, Serial=0.024396, Parallel=0.047727, Speedup=0.51, Efficiency=51.12%, MaxError=0.000000e+00
+N=4000, Procs=2, Serial=0.025411, Parallel=0.019951, Speedup=1.27, Efficiency=63.68%, MaxError=0.000000e+00
+N=4000, Procs=4, Serial=0.026345, Parallel=0.016872, Speedup=1.56, Efficiency=39.04%, MaxError=0.000000e+00
+N=4000, Procs=8, Serial=0.032442, Parallel=0.021921, Speedup=1.48, Efficiency=18.50%, MaxError=0.000000e+00

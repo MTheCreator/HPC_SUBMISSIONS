@@ -1,0 +1,46 @@
+Compiling...
+Running Exercise 1
+Sum = 500255.730712
+Max = 0.999999
+StdDev = 0.288723
+Running Exercise 2 (1 thread)
+Sum = 999000000.000000
+Execution time = 0.006055 seconds
+Running Exercise 2 (4 threads)
+Sum = 999000000.000000
+Execution time = 0.003541 seconds
+Running Exercise 3
+Execution time = 1.100860 seconds
+Running Exercise 4
+Version 1
+Threads = 1
+Time = 0.045242
+MFLOPS = 1060.964976
+Threads = 2
+Time = 0.019500
+MFLOPS = 2461.536295
+Threads = 4
+Time = 0.011612
+MFLOPS = 4133.676741
+Threads = 8
+Time = 0.013182
+MFLOPS = 3641.349853
+Threads = 16
+Time = 0.012465
+MFLOPS = 3850.782143
+Version 3
+Threads = 1
+Time = 0.036894
+MFLOPS = 1301.030037
+Threads = 2
+Time = 0.020663
+MFLOPS = 2322.990204
+Threads = 4
+Time = 0.013413
+MFLOPS = 3578.630453
+Threads = 8
+Time = 0.016111
+MFLOPS = 2979.305838
+Threads = 16
+Time = 0.018777
+MFLOPS = 2556.333384

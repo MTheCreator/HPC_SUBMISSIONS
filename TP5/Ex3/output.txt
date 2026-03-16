@@ -1,0 +1,8 @@
+(base) baddou@Mounias-MacBook-Pro Ex3 % mpirun -np 4 ./ex3
+5
+Process 0: Enter an integer value: Process 0: Current value = 5
+Process 1: Current value = 6
+Process 2: Current value = 8
+Process 3: Current value = 11
+
+Final value after passing through all processes: 11
